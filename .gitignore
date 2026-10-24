@@ -1,0 +1,6 @@
+# Guided books and reference builds stay local; only my own implementations are published.
+guided-impl/
+WORKFLOW.md
+
+# Rust build output
+target/
