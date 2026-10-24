@@ -6,6 +6,7 @@ use std::{error, fmt, io, result};
 pub mod bytes;
 pub mod db;
 pub mod header;
+pub mod page;
 pub mod pager;
 
 pub use db::Db;
