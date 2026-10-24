@@ -88,7 +88,7 @@ impl Pager {
             ));
         }
         let mut buf = vec![0u8; self.page_size as usize];
-        // In u64: page numbers times page sizes overflow u32 past 4 GiB.
+        // Compute in u64: offsets past 4 GiB don't fit in a u32.
         let offset = (n as u64 - 1) * self.page_size as u64;
         self.file.read_exact_at(&mut buf, offset)?;
         Ok(buf)

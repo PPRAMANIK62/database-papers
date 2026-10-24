@@ -141,7 +141,7 @@ impl BTreePage {
 }
 
 /// Follows the freeblock chain. Each block starts with the offset of the
-/// next one and its own size, and the chain goes up the page.
+/// next block and its own size. Offsets increase along the chain.
 fn read_freeblocks(
     data: &[u8],
     first: u16,

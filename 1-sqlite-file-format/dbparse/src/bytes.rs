@@ -2,8 +2,8 @@
 //!
 //! Every multi-byte number in the file is big-endian: the first byte is the
 //! most significant (spec section 1.3). Each reader checks its bounds and
-//! returns an error instead of panicking, because a corrupt file can point
-//! anywhere.
+//! returns an error instead of panicking, because an offset read from a
+//! corrupt file can be anything.
 
 use crate::{Result, corrupt};
 
