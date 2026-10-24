@@ -4,6 +4,7 @@
 use std::{error, fmt, io, result};
 
 mod bytes;
+mod header;
 mod pager;
 
 /// Everything that can go wrong while reading a database file.
