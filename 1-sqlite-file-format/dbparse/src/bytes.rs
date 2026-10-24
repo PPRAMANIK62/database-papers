@@ -15,3 +15,11 @@ pub fn be32(b: &[u8], at: usize) -> Result<u32> {
         None => corrupt(format!("4-byte read at offset {at} runs past the end")),
     }
 }
+
+/// Reads the byte at `at`, or fails if it is past the end.
+pub fn byte(b: &[u8], at: usize) -> Result<u8> {
+    match b.get(at) {
+        Some(&v) => Ok(v),
+        None => corrupt(format!("1-byte read at offset {at} runs past the end")),
+    }
+}
