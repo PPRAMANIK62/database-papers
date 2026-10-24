@@ -3,9 +3,12 @@
 
 use std::{error, fmt, io, result};
 
-mod bytes;
-mod header;
-mod pager;
+pub mod bytes;
+pub mod db;
+pub mod header;
+pub mod pager;
+
+pub use db::Db;
 
 /// Everything that can go wrong while reading a database file.
 #[derive(Debug)]
