@@ -25,11 +25,22 @@ pub struct Pager {
 impl Pager {
     pub fn open(path: impl AsRef<Path>) -> Result<Pager> {
         let file = File::open(path)?;
+        let len = file.metadata()?.len();
+        // SQLite opens an empty file as a new database with no pages yet.
+        // There is nothing for us to read, so we say so.
+        if len == 0 {
+            return corrupt("the file is empty: a new database with no pages yet");
+        }
+        if len < 100 {
+            return corrupt(format!(
+                "the file is {len} bytes, too short for the 100-byte header"
+            ));
+        }
         // The one read that isn't a whole page: the 100-byte header.
         let mut first_bytes = [0u8; 100];
         file.read_exact_at(&mut first_bytes, 0)?;
         let page_size = decode_page_size(be16(&first_bytes, 16)?)?;
-        let file_pages = (file.metadata()?.len() / page_size as u64) as u32;
+        let file_pages = (len / page_size as u64) as u32;
         Ok(Pager {
             file,
             first_bytes,
