@@ -10,7 +10,7 @@ pub fn be16(b: &[u8], at: usize) -> Result<u16> {
 
 /// Reads a big-endian `u32` at `at`, or fails if it runs past the end.
 pub fn be32(b: &[u8], at: usize) -> Result<u32> {
-    match b.get(at..at + 3) {
+    match b.get(at..at + 4) {
         Some(s) => Ok(u32::from_be_bytes([s[0], s[1], s[2], s[3]])),
         None => corrupt(format!("4-byte read at offset {at} runs past the end")),
     }
