@@ -1,7 +1,0 @@
-[package]
-name = "dbparse"
-version = "0.1.0"
-edition = "2024"
-description = "A parser for the SQLite database file format, written while reading the spec."
-
-[dependencies]
