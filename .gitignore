@@ -1,6 +1,8 @@
-# Guided books and reference builds stay local; only my own implementations are published.
+# Guided books, reference builds and local notes stay local; only the READMEs are published.
 guided-impl/
 WORKFLOW.md
+CLAUDE.md
+.claude/settings.local.json
 
 # Rust build output
 target/
