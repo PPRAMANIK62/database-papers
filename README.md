@@ -13,7 +13,3 @@ Alongside, I'm building [onyxdb](https://github.com/PPRAMANIK62/onyxdb), a SQL d
 
 | # | Topic | Sources |
 |---|-------|---------|
-
-## Earlier
-
-- [`dbparse`](https://github.com/PPRAMANIK62/database-papers/tree/3be8a6e/1-sqlite-file-format/dbparse): a parser for SQLite's file format.
