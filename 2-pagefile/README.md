@@ -1,4 +1,4 @@
-# 1. pagefile
+# 2. pagefile
 
 How a database stores data in fixed-size pages: a header, checksums, slotted pages, a freelist and overflow chains.
 

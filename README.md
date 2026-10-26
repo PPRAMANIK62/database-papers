@@ -6,7 +6,7 @@ Alongside, I'm building [onyxdb](https://github.com/PPRAMANIK62/onyxdb), a SQL d
 
 ## Now reading
 
-1. `pagefile`: how a database stores data in fixed-size pages.
+2. `pagefile`: how a database stores data in fixed-size pages.
 
 ## Done
 
