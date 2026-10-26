@@ -12,3 +12,12 @@ My implementation: [`pagefile` in onyxdb](https://github.com/PPRAMANIK62/onyxdb/
 4. [A Painless Guide to CRC Error Detection Algorithms](http://www.ross.net/crc/download/crc_v3.txt) (Ross Williams): how a CRC works, from polynomial division up to a table-driven version.
 
 ## What I learned
+
+- Databases split a file into fixed-size pages and always read and write whole pages. SQLite defaults to 4 KiB, PostgreSQL uses 8 KiB, InnoDB 16 KiB.
+- A slotted page keeps slots at the front and items at the back, growing toward each other. Items can move inside the page while their slot numbers stay the same.
+- That stability matters: PostgreSQL indexes point at rows by (page, slot), so a row's slot can never change.
+- SQLite reuses deleted space through a chain of freeblocks, and tracks free pages in trunk pages that list them, so freeing a page usually touches only the trunk.
+- A value too big for a page goes in a chain of overflow pages, each pointing to the next.
+- A CRC is long division in binary, with XOR as subtraction. The table-driven version precomputes every byte value, so each byte costs one lookup, one shift and one XOR.
+- Every CRC standard publishes a check value, the CRC of `123456789`. It's the quickest test that an implementation is right.
+- A checksum catches flipped bits and torn writes, but not a lost write: the old page still has a valid checksum.
