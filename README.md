@@ -1,17 +1,17 @@
 # Database papers
 
-I'm learning how databases work by reading the papers, specs and design docs behind them, then designing and building each piece myself in Rust.
+I'm building a SQL database from scratch in Rust, and this repo is how I learn each piece of it. For every layer I read the papers, specs and design docs behind it, then design and build my own version. The database itself lives in its own repo, `db`: one Cargo workspace with a crate per layer. This repo holds the reading and what I learned.
 
-The reading list is organized around builds. Each build is one Rust crate on one topic (a file of pages, a buffer pool, a B-tree, a write-ahead log, an LSM tree, Raft, a graph store and so on), and each one draws on several sources instead of translating any single one. It goes from how one machine stores data, to how many machines agree on it, to graph databases on object storage and async runtimes.
+The reading list is organized around builds. Each build is one crate in the database (a file of pages, a buffer pool, a write-ahead log, a B-tree, an LSM tree, transactions, SQL, a server and a client), and each one draws on several sources instead of translating any single one. Once the database works, the list goes on to many machines, graph databases and async runtimes.
 
 For each build the loop is the same:
 
 1. Read everything on the topic and understand it.
-2. Design my own version, then build it in Rust with no dependencies except my own earlier builds.
+2. Design my own version, then build it in Rust with no dependencies except my own earlier crates.
 3. Check it against a simple model, and against a real system wherever one does the same job.
 4. Write about it.
 
-Each build gets its own folder, numbered in the order of the reading list: `N-<crate>/`, with my implementation inside it. Later builds use earlier ones as dependencies.
+Each build gets a folder here, numbered in the order of the reading list: `N-<crate>/`, with a README listing the sources it drew on and what I learned from them. The design of each crate, and the decisions behind it, are in that crate's README in `db`.
 
 ## Now working on
 
