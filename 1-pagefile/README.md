@@ -2,7 +2,7 @@
 
 A file of fixed-size, numbered pages, the bottom layer of the database. Page 0 is a header that describes the file, and every page ends with a CRC-32C checksum. Pages can hold many variable-size items (slotted pages), freed pages are reused through a freelist, and values too big for a page go in overflow chains.
 
-The code, its format and the decisions behind it are in the `pagefile` crate's README in `db`. The buffer pool (build 2) and the B-tree (build 5) are built on it.
+The code, its format and the decisions behind it are in the [`pagefile` crate](https://github.com/PPRAMANIK62/onyxdb/tree/main/crates/pagefile) in onyxdb. The buffer pool (build 2) and the B-tree (build 5) are built on it.
 
 ## References
 
